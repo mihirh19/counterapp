@@ -22,14 +22,10 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1>Counter Dapp</h1>
         <h3>{countrer}</h3>
-        <Web3Button
-        theme="dark"
-        contractAddress={contractaddress}
-        action={()=> getCounter()}
-        >Refresh button</Web3Button>
+        <ConnectWallet theme="dark" />
         <br />
         <Web3Button
-        theme="dark"
+        theme="light"
         contractAddress={contractaddress}
         action={(contract) => contract.call('incrementcounter')}
         >Increment button</Web3Button>
