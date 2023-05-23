@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { ThirdwebProvider, metamaskWallet,coinbaseWallet  } from "@thirdweb-dev/react";
+import { ThirdwebProvider, metamaskWallet,coinbaseWallet,localWallet } from "@thirdweb-dev/react";
 import "../styles/globals.css";
 
 // This is the chain your dApp will work on.
@@ -9,7 +9,7 @@ const activeChain = "mumbai";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThirdwebProvider activeChain={activeChain} supportedWallets={[ metamaskWallet() , coinbaseWallet()]}>
+    <ThirdwebProvider activeChain={activeChain} supportedWallets={[ metamaskWallet() , coinbaseWallet(), localWallet()]}>
       <Component {...pageProps} />
     </ThirdwebProvider>
   );
