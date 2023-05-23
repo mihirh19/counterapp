@@ -9,6 +9,7 @@ const Home: NextPage = () => {
   const contractaddress = "0x2C909eA1D9F810f9fc8076b2B62Ca6715A230576"
   const {contract} = useContract(contractaddress);
   const [countrer, setcounter] = useState<string | undefined>(undefined);
+  const [disabled, changeState] = useState(true)
   
   async function getCounter() {
     if (!contract) return;
@@ -22,10 +23,11 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1>Counter Dapp</h1>
         <h3>{countrer}</h3>
-        <ConnectWallet theme="dark" />
+        <ConnectWallet theme="dark" modalTitle="Login" />
         <br />
         <Web3Button
-        theme="light"
+        theme="dark"
+        
         contractAddress={contractaddress}
         action={(contract) => contract.call('incrementcounter')}
         >Increment button</Web3Button>
